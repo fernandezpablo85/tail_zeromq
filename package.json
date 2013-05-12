@@ -1,0 +1,15 @@
+{
+  "name": "zero_tail",
+  "description": "Websocket tailing of ZeroMQ events.",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "express": "3.x",
+    "socket.io": "0.9.x",
+    "zmq": "2.x"
+  },
+  "engine": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  }
+}

@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <title>tail -f zeromq</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io.connect('http://localhost');
+      socket.on('zmq', function (data) {
+        var json = JSON.parse(data.substring(5))
+        var entry = document.createElement("div")
+        entry.appendChild(document.createTextNode(json.topic + ": " + json.title + " (" + json.body + ")"));
+        document.getElementById("stream").appendChild(entry);
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Tailing events from ZeroMQ</h1>
+    <div id="stream">
+
+    </div>
+  </body>
+</html>
