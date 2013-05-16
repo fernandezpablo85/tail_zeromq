@@ -19,7 +19,7 @@ io.sockets.on('connection', function (socket) {
   listener.connect('tcp://127.0.0.1:3000');
   listener.subscribe("data")
   listener.on("message", function(message) {
-    console.log("listened!");
+    console.log("listened:" + message);
     socket.emit('zmq', message.toString("ascii"));
   });
 
@@ -38,6 +38,6 @@ setInterval(function() {
     "title" : "River wins local championship.",
     "body"  : "Loren ipsum, we're champions fuck everyone else."
   }
-  console.log("seding shit")
-  sock.send("data " + JSON.stringify(data));
-}, 10);
+  console.log("seding stuff")
+  sock.send(["data", JSON.stringify(data)]);
+}, 100);
